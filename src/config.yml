@@ -1,8 +1,8 @@
 # This is the configuration file for the Reaper API System Service. Everything will be annotated in YAML. 
 ---
 general: 
-  logging: 
-  beta: 
+  logging: false
+  beta: false
 locations: 
   playbooks: 
   kubeconfig: 
