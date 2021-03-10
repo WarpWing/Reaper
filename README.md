@@ -1,2 +1,2 @@
 # Reaper
-A system daemon that actively monitors,logs and secures activity on Linux based servers. Written in Bash and deployed to Docker 
+An API system service that helps with Kubernetes and Ansible Operations. Written in Python and deployable to Linux Based Systems. 
