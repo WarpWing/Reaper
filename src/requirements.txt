@@ -1,3 +1,1 @@
 yml
-uvicorn[standard]
-fastapi
