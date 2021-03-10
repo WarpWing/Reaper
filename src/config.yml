@@ -3,6 +3,4 @@
 general: 
   logging: false
   beta: false
-locations: 
-  playbooks: 
-  kubeconfig: 
+
