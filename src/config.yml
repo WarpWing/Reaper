@@ -1,6 +1,0 @@
-# This is the configuration file for the Reaper API System Service. Everything will be annotated in YAML. 
----
-general: 
-  logging: false
-  beta: false
-
