@@ -1,1 +1,5 @@
-yml
+SpeechRecognition
+pyttsx3
+wikipedia
+requests
+comtypes
