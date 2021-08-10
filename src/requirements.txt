@@ -3,3 +3,5 @@ pyttsx3
 wikipedia
 requests
 comtypes
+python-dotenv
+finnhub-python
