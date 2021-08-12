@@ -57,7 +57,7 @@ def takeCommand():
         audio=r.listen(src)
 
         try:
-            input=r.recognize_google(audio,language='en-in')
+            input=r.recognize_google(audio,language='en-us')
             print(f"User said:{input}\n")
 
         except Exception as e:
@@ -80,10 +80,6 @@ if __name__=='__main__':
         elif "goodbye" in statement or "terminate" in statement:
             speak('Shutting down Reaper')
             break
-
-        elif 'open Youtube' in statement: 
-            speak("Opening Youtube")
-            webbrowser.open("https://youtube.com")
         
         elif 'check stock' in statement:
             speak("Please state the symbol of what stock you would like to check") 
@@ -91,6 +87,28 @@ if __name__=='__main__':
             ft = finnhub_client.quote(f'{stock}') #FT starts for finnhub return
             rt = (ft["c"]) #RT stands for Return
             speak(f"Currently, {stock} has a current price of {rt}")
+
+        elif 'check stock thoughts' in statement: 
+            speak("Please state the symbol of what stock you would like to check") 
+            stock = takeCommand().lower().upper()
+            ft = finnhub_client.recommendation_trends(f'{stock}')
+
+
+        elif 'display reddit' in statement:
+            webbrowser.open_new_tab("https://reddit.com")
+
+        elif 'display youtube' in statement: 
+            webbrowser.open_new_tab("https://youtube.com")
+
+        elif 'display jellyfin' in statement:
+            webbrowser.open_new_tab("http://192.168.13.17:8096/web/index.html")
+
+        elif 'i want to play chess' in statement:
+            webbrowser.open_new_tab("https://lichess.org")
+            speak("Good luck")
+        
+            
+            
             
             
            
