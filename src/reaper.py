@@ -88,7 +88,7 @@ if __name__=='__main__':
             rt = (ft["c"]) #RT stands for Return
             speak(f"Currently, {stock} has a current price of {rt}")
 
-        elif 'check stock thoughts' in statement: 
+        elif 'check stock thoughts' in statement: #Still under RnD
             speak("Please state the symbol of what stock you would like to check") 
             stock = takeCommand().lower().upper()
             ft = finnhub_client.recommendation_trends(f'{stock}')
@@ -96,9 +96,11 @@ if __name__=='__main__':
 
         elif 'display reddit' in statement:
             webbrowser.open_new_tab("https://reddit.com")
+            speak("Happy browsing")
 
         elif 'display youtube' in statement: 
             webbrowser.open_new_tab("https://youtube.com")
+            speak("Happy watching")
 
         elif 'display jellyfin' in statement:
             webbrowser.open_new_tab("http://192.168.13.17:8096/web/index.html")
