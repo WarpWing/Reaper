@@ -1,4 +1,19 @@
 import finnhub
-finnhub_client = finnhub.Client(api_key="")
+import os 
+from dotenv import *
 
-print(finnhub_client.technical_indicator(symbol="GPS", resolution='D', _from=1583098857, to=1584308457, indicator='sto', indicator_fields={"timeperiod": 3}))
+
+# General Values 
+load_dotenv()
+KEY = os.getenv("STOCK_TOKEN")
+finnhub_client = finnhub.Client(api_key=KEY)
+
+
+
+# Functions array begins 
+
+
+def stock_price(symbol):
+    ft = finnhub_client.quote(f'{symbol}') #FT starts for finnhub return
+    rt = (ft["c"]) #RT stands for Return
+    return rt

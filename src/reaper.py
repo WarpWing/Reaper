@@ -1,5 +1,6 @@
 import speech_recognition as sr
 from dotenv import *
+import reapstock
 import finnhub
 import pyttsx3
 import datetime
@@ -17,9 +18,7 @@ import socket,json,psutil,logging
 
 
 #General Variables
-load_dotenv()
-KEY = os.getenv("STOCK_TOKEN")
-finnhub_client = finnhub.Client(api_key=KEY)
+
 
 # Voice Engine Init
 voice_id = "english"
@@ -83,17 +82,10 @@ if __name__=='__main__':
         
         elif 'check stock' in statement:
             speak("Please state the symbol of what stock you would like to check") 
-            stock = takeCommand().lower().upper()
-            ft = finnhub_client.quote(f'{stock}') #FT starts for finnhub return
-            rt = (ft["c"]) #RT stands for Return
-            speak(f"Currently, {stock} has a current price of {rt}")
-
-        elif 'check stock thoughts' in statement: #Still under RnD
-            speak("Please state the symbol of what stock you would like to check") 
-            stock = takeCommand().lower().upper()
-            ft = finnhub_client.recommendation_trends(f'{stock}')
-
-
+            symbol = takeCommand().lower().upper()
+            rt = reapstock.stock_price(symbol)
+            speak(f"Currently, {symbol} has a current price of {rt}") 
+            
         elif 'display reddit' in statement:
             webbrowser.open_new_tab("https://reddit.com")
             speak("Happy browsing")
@@ -108,6 +100,11 @@ if __name__=='__main__':
         elif 'i want to play chess' in statement:
             webbrowser.open_new_tab("https://lichess.org")
             speak("Good luck")
+        
+        elif 'measure stock rsi' in statement: 
+             speak("Please state of the symbol of what stock you would like to measure")
+             stock = takeCommand().lower().upper()
+
         
             
             
